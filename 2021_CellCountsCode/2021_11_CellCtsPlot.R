@@ -3,7 +3,7 @@ library(readxl)
 library(ggsignif)
 library(resample)
 
-setwd("/Users/humzakhan/Desktop/CyTOF CSVs")
+setwd("_")
 Counts<-read_csv("2021_12_CellCounts_FromPhospho.csv") %>% select(-...1)
 
 cibox<-function(x){
@@ -89,11 +89,11 @@ ggplot(Counts %>% dplyr::filter(Signif=="Significant"),aes(x=Group,y=percentTota
 ggsave("FigureS1A_CellCtGlobal.png",width=175,height=250,units="mm",scale=1,dpi=3000)
 
 
-IDDA<-read_xlsx("/Users/humzakhan/Desktop/2021_Lab/CVID\ Project\ Organization/NEW_IDDAScore_UA_2022_03.xlsx",n_max=200) %>% 
-  dplyr::filter(!is.na(B)) %>% mutate(A=as.numeric(A)) %>% mutate(M=100*M,O=100*O)
+#IDDA<-read_xlsx("/Users/humzakhan/Desktop/2021_Lab/CVID\ Project\ Organization/NEW_IDDAScore_UA_2022_03.xlsx",n_max=200) %>% 
+#  dplyr::filter(!is.na(B)) %>% mutate(A=as.numeric(A)) %>% mutate(M=100*M,O=100*O)
 
-IDDA<-IDDA %>% mutate(IDDAScore=(((A+B+C+D+E+F+G+H+I+J+K+L)/(M/150))+ifelse(N<40,N*.1,4)+ifelse(O<10,O*.8,8)+
-                                   P+Q+R+S)) %>% rename(Subject='UCLA ID2')
+#IDDA<-IDDA %>% mutate(IDDAScore=(((A+B+C+D+E+F+G+H+I+J+K+L)/(M/150))+ifelse(N<40,N*.1,4)+ifelse(O<10,O*.8,8)+
+ #                                  P+Q+R+S)) %>% rename(Subject='UCLA ID2')
 
 #ggplot(IDDA,aes(y=IDDAScore,fill=`UCLA ID2`))+geom_histogram()+theme_minimal()
   

@@ -43,23 +43,11 @@ theme_manish <- function() {
     theme(legend.title=element_text(size=8)) 
 }
 
-setwd("/u/home/h/humzakha/project-mbutte/HK_CyTOF/2021_CyTOF_CSVs")
+setwd("2021_CyTOF_CSVs")
 
-ucla134<-read_csv("UCLA134_Phospho_FULL_1220.csv")
-ucla102<-read_csv("UCLA102_Phospho_FULL_1220.csv")
-ucla204<-read_csv("UCLA204_Phospho_FULL_1220.csv")
-neb1<-read_csv("Nebraska1_Phospho_FULL_1220.csv")
-ucla116<-read_csv("UCLA116_Phospho_FULL_1220.csv")
-usf3<-read_csv("USF3_Phospho_FULL_1220.csv")
-ucla161<-read_csv("UCLA161_Phospho_FULL_1220.csv")
-usf2<-read_csv("USF2_Phospho_FULL_1220.csv")
-ucla177<-read_csv("UCLA177_Phospho_FULL_1220.csv")
-ucla171<-read_csv("UCLA171_Phospho_FULL_1220.csv")
-ucla215<-read_csv("UCLA215_Phospho_FULL_1220.csv")
-ucla209<-read_csv("UCLA209_Phospho_FULL_1220.csv")
+# read all 
 
-totalPhosph<-bind_rows(ucla134,ucla102,ucla204,neb1,ucla116,usf3,ucla161,usf2,ucla177,ucla171,ucla215,ucla209)
-rm(ucla134,ucla102,ucla204,neb1,ucla116,usf3,ucla161,usf2,ucla177,ucla171,ucla215,ucla209)
+#totalPhosph<-bind_rows(all_files)
 
 totalCellCt<-totalPhosph %>% group_by(Subject) %>% summarise(TotalCells=n())
 
